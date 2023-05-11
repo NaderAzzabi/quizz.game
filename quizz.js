@@ -1,53 +1,99 @@
-var prevBtn= document.getElementById('prev');
-var nextBtn = document.getElementById('next');
-var trueBtn = document.getElementById('true');
-var falsebtn = document.getElementById('false');
 
-var currentQuestion = 0;
-var score = 0;
+    var trueButton=document.getElementById('true-btn')
+    var falseButton=document.getElementById('false-btn')
+    var score = 0;
+    var questionId = 0;
 
-var questions = [
-    {
-        question : "Arif Alvi is the current president of pakistan ?",
-        answers : [
-            {option: "TRUE" , answer: true},
-            {option: "FALSE", answer: false},
-        ]
-    },
-    { 
-        question : "Michael Schumacher is from spain?"
-        answers : [
-            {option: "TRUE" , answer: false},
-            {option: "FALSE", answer: true},
-        ]
-    } ,
-    {
-        question : "KAMAZ is a car mark?"
-        answers : [
-            {option: "TRUE" , answer: true},
-            {option: "FALSE", answer: false},
-        ]
-    },
-    { 
-        question : "Michael Schumacher is from spain?"
-        answers : [
-            {option: "TRUE" , answer: false},
-            {option: "FALSE", answer: true},
-        ]
-    } ,
-    { 
-        question : "Water is H2O?"
-        answers : [
-            {option: "TRUE" , answer: true},
-            {option: "FALSE", answer: false},
-        ]
-    } ,
-    {
-    question : "Titanic release after 2000 ?"
-    answers : [
-        {option: "TRUE" , answer: false},
-        {option: "FALSE", answer: true},
-    ]
-} 
+    var questions = [
+      { id:0,
+        question: "Arif Alvi is the current president of Pakistan?",
+        answer: 'true'
+      },
+      {id:1,
+        question: "Michael Schumacher is from Spain?",
+        answer: 'false'
+      },
+      {id:2,
+        question: "KAMAZ is a car mark?",
+        answer: 'true'
+      },
+      {id:3,
+        question: "Titanic is a French movie?",
+        answer: 'false'
+      },
+      {id:4,
+        question: "Water is H2O?",
+        answer: 'true'
+      }
+    ];
+   
+    // var question =questions[0]
 
-]
+    $("#question").append(questions[0].question);
+    
+   
+    
+    function displayQuestion() {
+        if (questionId === questions.length) {
+     
+          $("#quiz-container").hide();
+          $("#result").text("You scored " + score + " out of " + questions.length);
+          return;
+        }
+        var question = questions[questionId].question;
+        $("#question").text(question);
+      }
+    
+     function checkAnswer(bool) {
+     
+        if (questions[questionId]&&questions[questionId].answer === bool) {
+                score++;
+                questionId++
+                if (questionId < questions.length) $("#question").text(questions[questionId].question)
+                else console.log("hi")
+            
+                console.log("questions[questionId]",questions[questionId])
+                console.log('id',questionId)
+                console.log("increase score",score)
+           
+           return
+        }
+        if(questions[questionId]&&questions[questionId].answer !== bool){
+        console.log('id',questionId)
+
+        questionId++
+      if (questionId < questions.length) $("#question").text(questions[questionId].question)
+      else console.log("hi")
+        // $("#question").text(questions[questionId].question);
+        console.log(" NOT increase score",score)
+        console.log("questions[questionId]",questions[questionId])
+        
+                 console.log("score",score)
+                 console.log("questionId",questionId)
+        return
+        }
+    
+   
+         
+    }
+  
+    // $("#true-btn").click(function() {
+    //   checkAnswer(true);
+    // });
+    
+    // $("#false-btn").click(function() {
+    //   checkAnswer(false);
+    // });
+    
+    // displayQuestion();
+  
+ 
+  
+trueButton.addEventListener('click',function(e){
+    console.log(e.target.value)
+    checkAnswer(e.target.value)
+})
+falseButton.addEventListener("click",function(e){
+    console.log(e.target.value)
+    checkAnswer(e.target.value)
+})

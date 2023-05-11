@@ -38,3 +38,20 @@ p {
 .btn-next {
     background-color: #FF0000;
 }
+#true-btn{
+    color: rgb(8, 0, 0);
+    border-radius: 50%;
+    background-color: #4CAF50;
+    cursor: pointer;
+    font-size: 35px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+#false-btn{
+    color: rgb(8, 0, 0);
+    border-radius: 50%;
+    background-color: #bd0505;
+    cursor: pointer;
+    font-size: 35px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

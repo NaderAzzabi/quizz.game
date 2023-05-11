@@ -1,35 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="quizz.css" />
-    <title>First question</title>
-    
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="quizz.css" />
+  <title>Quiz</title>
 </head>
 <body>
-    <div class="container">
-        <div class="score">
-            <span id="user-score">0</span>
-            <span id="total-score">/5</span>
-        </div>
-
-        <div class="content" id="question-a">
-            <div id="question-text"></div>
-            <div class="option">
-                <button class="btn btn-option" id="True" style="position:fixed; left: 450px; top: 30px; height: 100px; width: 300px">TRUE</button>
-                <button class="btn btn-option" id="False" style="position:fixed; left: 200px; top: 80px; height: 100px; width: 300px">FALSE</button>
-
-            </div>
-        </div>
-
-        <div class ="controls" style="position:fixed; left: 200px; right:100px top: 80px; height: 100px; width: 300px">
-            <button class="btn btn-prev" >Prev</button>
-            <button class="btn btn-next">Next</button>
-        </div>
-
-
-    </div>
+  <div id="quiz-container">
+    <h1>True/False Quiz</h1>
+    <p id='question'></p>
+    
+   
+    <button value="true" id="true-btn" style="position:fixed; left: 900px; top: 300px; height: 100px; width: 300px">True</button>
+    <button  value="false" id="false-btn" style="position:fixed; left: 700px; top: 200px; height: 100px; width: 300px">False</button>
+    <p id="result"></p>
+  </div>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="quizz.js"></script>
 </body>
 </html>
+
+
